@@ -1,0 +1,14 @@
+steps:
+  # running docker-compose
+  - name: "docker/compose:1.26.2"
+    env:
+      - "FIRST_SUPERUSER=${_FIRST_SUPERUSER}"
+      - "FIRST_SUPERUSER_PASSWORD=${_FIRST_SUPERUSER_PASSWORD}"
+      - "POSTGRES_DB=${_POSTGRES_DB}"
+      - "POSTGRES_USER=${_POSTGRES_PASSWORD}"
+      - "POSTGRES_PASSWORD=${_POSTGRES_PASSWORD}"
+      - "POSTGRES_SERVER=${_POSTGRES_SERVER}"
+      - "SQLALCHEMY_DATABASE_URI=${_SQLALCHEMY_DATABASE_URI}"
+    args: ["up", "--build"]
+options:
+  logging: CLOUD_LOGGING_ONLY
